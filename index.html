@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>자미한의원 | 한의사 방문진료</title>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --og: #E8720C;
+  --og2: #F59B3A;
+  --og-pale: #FEF3E7;
+  --og-border: #F7C98A;
+  --grn: #4B7A5E;
+  --grn-pale: #EAF3ED;
+  --dark: #181818;
+  --mid: #444;
+  --soft: #777;
+  --line: #ECEAE5;
+  --bg: #F8F5F0;
+  --white: #FFFFFF;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--dark);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+.hero {
+  background: var(--og);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-top {
+  background: var(--dark);
+  text-align: center;
+  padding: 14px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.5);
+}
+
+.hero-top span { color: var(--og2); }
+
+.hero-body {
+  padding: 48px 24px 56px;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.hero-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.hero-h1 {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(28px, 6vw, 54px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.hero-h1 .line2 {
+  display: block;
+  font-size: clamp(20px, 4vw, 36px);
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  margin-top: 6px;
+}
+
+.hero-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  line-height: 2;
+  border-left: 2px solid rgba(255,255,255,0.3);
+  padding-left: 16px;
+  margin-bottom: 32px;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hbadge {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hbadge .num {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 22px;
+  color: #FFD580;
+}
+
+.strip {
+  background: var(--dark);
+  padding: 18px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+}
+
+.strip-item::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--og2);
+  flex-shrink: 0;
+}
+
+.content {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ruled {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 52px 0;
+}
+
+.s-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--og);
+  margin-bottom: 12px;
+}
+
+.s-label::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--og);
+}
+
+.s-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+.what-sec { padding: 60px 0 0; }
+
+.what-lead {
+  font-size: 16px;
+  color: var(--mid);
+  line-height: 2.1;
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--line);
+}
+
+.what-lead strong { color: var(--og); }
+
+.benefit-list { display: flex; flex-direction: column; gap: 0; }
+
+.benefit-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.benefit-row:last-child { border-bottom: none; }
+
+.b-num {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--og-border);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 48px;
+}
+
+.b-content h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.b-content p { font-size: 14px; color: var(--soft); line-height: 1.8; }
+
+.gov-sec { padding: 52px 0; }
+
+.gov-intro {
+  background: var(--dark);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.gov-intro .g-icon { font-size: 32px; flex-shrink: 0; margin-top: 2px; }
+.gov-intro h4 {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.gov-intro p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.9; }
+.gov-intro p strong { color: var(--og2); }
+
+.service-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.sv-card {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.sv-head {
+  background: var(--og);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sv-head .sv-ico { font-size: 18px; }
+.sv-head h4 { font-size: 14px; font-weight: 700; color: #fff; }
+
+.sv-body { padding: 18px; }
+
+.sv-body li {
+  list-style: none;
+  font-size: 13px;
+  color: var(--mid);
+  padding: 5px 0 5px 14px;
+  border-bottom: 1px dashed #F0EDE8;
+  position: relative;
+  line-height: 1.6;
+}
+
+.sv-body li:last-child { border-bottom: none; }
+.sv-body li::before { content: '▸'; position: absolute; left: 0; color: var(--og); font-size: 10px; top: 7px; }
+
+.target-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+.target-table thead tr { background: var(--grn); }
+.target-table thead th { color: #fff; font-size: 13px; font-weight: 700; padding: 14px 16px; text-align: left; }
+.target-table tbody tr { background: var(--white); }
+.target-table tbody tr:nth-child(even) { background: #FAFAF8; }
+.target-table tbody td { padding: 13px 16px; color: var(--mid); border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.7; }
+.target-table tbody td:first-child { font-weight: 700; color: var(--dark); white-space: nowrap; }
+
+.apply-tabs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.apply-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px 24px;
+}
+
+.apply-card .ac-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--og);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.apply-card .ac-title span { font-size: 20px; }
+.apply-card p { font-size: 13.5px; color: var(--soft); line-height: 1.9; }
+
+.apply-card .steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  align-items: center;
+}
+
+.step-chip {
+  background: var(--og-pale);
+  border: 1px solid var(--og-border);
+  color: var(--og);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 4px;
+}
+
+.arrow-chip { color: var(--og-border); font-size: 12px; }
+
+.story-sec { padding: 52px 0; }
+
+.story-pull {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(17px, 3vw, 22px);
+  font-weight: 700;
+  color: var(--og);
+  border-left: 4px solid var(--og);
+  padding: 16px 24px;
+  background: var(--og-pale);
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.milestones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.milestone {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px 18px;
+  text-align: center;
+}
+
+.milestone .m-year { font-size: 11px; font-weight: 700; color: var(--og); letter-spacing: 2px; margin-bottom: 10px; }
+.milestone .m-num { font-family: 'Nanum Myeongjo', serif; font-size: 32px; font-weight: 800; color: var(--dark); display: block; line-height: 1; margin-bottom: 6px; }
+.milestone .m-desc { font-size: 12.5px; color: var(--soft); line-height: 1.6; }
+
+.award-bar {
+  background: var(--grn);
+  border-radius: 10px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #fff;
+}
+
+.award-bar .aw-ico { font-size: 44px; flex-shrink: 0; }
+.award-bar h4 { font-family: 'Nanum Myeongjo', serif; font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.award-bar p { font-size: 13px; opacity: 0.8; line-height: 1.8; }
+
+.sched-sec { padding: 52px 0; }
+
+.sched-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.sched-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sched-card .sc-head {
+  background: var(--og-pale);
+  border-bottom: 1px solid var(--og-border);
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--og);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sched-card .sc-body { padding: 18px 20px; font-size: 14px; color: var(--mid); line-height: 1.8; }
+.sched-card .sc-body strong { color: var(--dark); font-size: 16px; }
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.how-step {
+  padding: 22px 16px;
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+
+.how-step:last-child { border-right: none; }
+
+.how-step .hs-num {
+  width: 30px; height: 30px;
+  background: var(--og);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.how-step h5 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.how-step p { font-size: 12px; color: var(--soft); line-height: 1.6; }
+
+.notice-row {
+  background: #F8F5F0;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 13px;
+  color: #888;
+  line-height: 1.8;
+  display: flex;
+  gap: 8px;
+}
+
+.notice-row::before { content: '※'; color: var(--og); font-weight: 700; flex-shrink: 0; }
+
+.area-sec { padding: 52px 0; }
+
+.area-box {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.area-head {
+  background: var(--dark);
+  padding: 13px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--og2);
+  letter-spacing: 1px;
+}
+
+.area-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 18px 20px;
+}
+
+.area-tag {
+  background: var(--og-pale);
+  border: 1px solid var(--og-border);
+  color: #555;
+  font-size: 12.5px;
+  padding: 5px 14px;
+  border-radius: 4px;
+}
+
+.cta-sec {
+  background: var(--dark);
+  padding: 64px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-sec::before {
+  content: '';
+  position: absolute;
+  right: -80px; top: -80px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,114,12,0.15) 0%, transparent 70%);
+}
+
+.cta-inner {
+  max-width: 740px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.cta-left h2 {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.cta-left p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 2; }
+
+.cta-right { display: flex; flex-direction: column; gap: 14px; }
+
+.cta-info {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cta-info .ci-ico { font-size: 22px; flex-shrink: 0; }
+.cta-info .ci-l { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 3px; }
+.cta-info .ci-v { font-size: 15px; font-weight: 700; color: #fff; }
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--og);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 17px 36px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 6px;
+}
+
+.cta-btn:hover { background: var(--og2); transform: translateY(-2px); }
+
+.hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 28px 20px 48px;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.htag {
+  font-size: 12.5px;
+  color: var(--og);
+  background: var(--og-pale);
+  border: 1px solid var(--og-border);
+  padding: 4px 13px;
+  border-radius: 4px;
+}
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.on { opacity: 1; transform: none; }
+
+@media (min-width: 600px) {
+  .cta-inner { grid-template-columns: 1fr 1fr; }
+  .apply-tabs { grid-template-columns: 1fr 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-top">자미한의원 · 안산시 상록구 본오동 <span>방문진료 안내</span></div>
+  <div class="hero-body">
+    <span class="hero-kicker">JAMI KOREAN MEDICINE CLINIC</span>
+    <h1 class="hero-h1">
+      1,000건의 발걸음
+      <span class="line2">찾아가는 진료로 건강을 선물합니다</span>
+    </h1>
+    <p class="hero-desc">
+      거동이 불편하시거나 병원 문턱을 넘기 힘드신 환자분들을 위해<br>
+      한의사가 직접 여러분의 공간으로 찾아갑니다.<br>
+      안산시 복지정책과와 함께 2020년부터 이어온 따뜻한 인술입니다.
+    </p>
+    <div class="hero-badges">
+      <div class="hbadge"><span class="num">1,000+</span> 누적 방문진료</div>
+      <div class="hbadge"><span class="num">2020</span> 년 시작</div>
+      <div class="hbadge">🏆 안산시장 표창</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-item">보건복지부 재가 방문 의료 참여기관</div>
+  <div class="strip-item">안산시 한의사협회 연계</div>
+  <div class="strip-item">재가급여 대상자 진료 가능</div>
+  <div class="strip-item">031-408-8877</div>
+</div>
+
+<div class="content">
+
+  <section class="what-sec reveal">
+    <div class="s-label">WHAT IS</div>
+    <h2 class="s-title">한의사 방문 진료란 무엇인가요?</h2>
+    <p class="what-lead">
+      환자가 거동이 불편하여 직접 병원에 오기 어려운 상황일 때,
+      <strong>한의사가 환자의 거주지나 요양시설을 직접 방문</strong>하여
+      진찰과 치료를 제공하는 서비스입니다.
+      저희 자미한의원은 안산시 복지정책과, 안산시 한의사협회와 연계하여
+      의료 사각지대에 계신 분들께 한의학의 손길을 전하고 있습니다.
+    </p>
+    <div class="benefit-list">
+      <div class="benefit-row">
+        <div class="b-num">01</div>
+        <div class="b-content">
+          <h4>🚗 교통 및 시간 절약</h4>
+          <p>병원까지 이동하는 번거로움이 없습니다. 특히 거동이 불편하신 어르신이나 중증 환자분들께 큰 도움이 됩니다.</p>
+        </div>
+      </div>
+      <div class="benefit-row">
+        <div class="b-num">02</div>
+        <div class="b-content">
+          <h4>🛋️ 심리적 안정</h4>
+          <p>익숙한 집에서 편안하게 진료를 받아 스트레스가 크게 줄어듭니다. 환자분이 가장 편안한 환경에서 치료가 이루어집니다.</p>
+        </div>
+      </div>
+      <div class="benefit-row">
+        <div class="b-num">03</div>
+        <div class="b-content">
+          <h4>👨‍👩‍👧 가족과 함께하는 소통</h4>
+          <p>보호자가 치료 과정을 직접 참관하며 의료진과 긴밀하게 소통할 수 있습니다. 가족과 함께 진료 계획을 세웁니다.</p>
+        </div>
+      </div>
+      <div class="benefit-row">
+        <div class="b-num">04</div>
+        <div class="b-content">
+          <h4>🏥 지속적인 건강 관리</h4>
+          <p>일회성 진료가 아닌 정기적인 방문을 통해 환자분의 건강 변화를 꾸준히 살피고 맞춤형 치료를 이어갑니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="ruled">
+
+  <section class="gov-sec reveal">
+    <div class="s-label">보건복지부 안내</div>
+    <h2 class="s-title">재가 방문 의료 서비스 — 이런 분들이 받을 수 있어요</h2>
+
+    <div class="gov-intro">
+      <div class="g-icon">📋</div>
+      <div>
+        <h4>보건복지부 재가 방문 의료 서비스</h4>
+        <p>
+          보건복지부는 <strong>거동이 불편한 어르신과 의료취약계층</strong>을 위해
+          재가 방문 의료 서비스를 운영하고 있습니다.<br>
+          자미한의원은 이 사업에 참여하여 안산 지역 내 방문 진료를 제공하고 있습니다.<br>
+          더 자세한 내용은 <strong>mohw.go.kr/integratedcare</strong> 에서 확인하실 수 있습니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="service-3">
+      <div class="sv-card">
+        <div class="sv-head"><span class="sv-ico">🏠</span><h4>재가급여 서비스</h4></div>
+        <ul class="sv-body">
+          <li>방문요양 서비스 연계</li>
+          <li>방문목욕 서비스</li>
+          <li>방문간호 서비스</li>
+          <li>주야간보호 연계 이용</li>
+          <li>단기보호 서비스</li>
+        </ul>
+      </div>
+      <div class="sv-card">
+        <div class="sv-head"><span class="sv-ico">🏥</span><h4>방문 진료 서비스</h4></div>
+        <ul class="sv-body">
+          <li>의사·한의사 방문 진료</li>
+          <li>거동 불편 어르신 대상</li>
+          <li>요양원·재가 입소자</li>
+          <li>침·뜸·부항 치료 제공</li>
+          <li>만성질환 관리 연계</li>
+        </ul>
+      </div>
+      <div class="sv-card">
+        <div class="sv-head"><span class="sv-ico">💊</span><h4>통합 돌봄 서비스</h4></div>
+        <ul class="sv-body">
+          <li>의료·복지 통합 연계</li>
+          <li>인지활동 프로그램</li>
+          <li>가족 상담 및 교육</li>
+          <li>지역사회 자원 연결</li>
+          <li>보건소 연계 관리</li>
+        </ul>
+      </div>
+    </div>
+
+    <table class="target-table">
+      <thead>
+        <tr><th>구분</th><th>대상</th><th>내용</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>장기요양 수급자</td><td>1~5등급, 인지지원등급</td><td>재가급여 이용 시 방문진료 연계 가능</td></tr>
+        <tr><td>의료급여 수급자</td><td>기초생활수급자 등</td><td>본인부담금 감면 혜택 적용</td></tr>
+        <tr><td>일반 환자</td><td>거동 불편 모든 분</td><td>개별 상담 후 방문 진료 가능</td></tr>
+      </tbody>
+    </table>
+
+    <div class="apply-tabs">
+      <div class="apply-card">
+        <div class="ac-title"><span>🏠</span> 재가급여 신청</div>
+        <p>국민건강보험공단에 장기요양 등급 신청 후 재가급여 서비스로 방문진료를 이용하실 수 있습니다.</p>
+        <div class="steps">
+          <span class="step-chip">등급신청</span><span class="arrow-chip">▸</span>
+          <span class="step-chip">등급판정</span><span class="arrow-chip">▸</span>
+          <span class="step-chip">서비스 이용</span>
+        </div>
+      </div>
+      <div class="apply-card">
+        <div class="ac-title"><span>📞</span> 직접 신청</div>
+        <p>장기요양 등급과 관계없이 거동이 불편하신 분이라면 누구든 자미한의원으로 직접 연락 주셔도 됩니다.</p>
+        <div class="steps">
+          <span class="step-chip">전화 상담</span><span class="arrow-chip">▸</span>
+          <span class="step-chip">일정 조율</span><span class="arrow-chip">▸</span>
+          <span class="step-chip">방문 진료</span>
+        </div>
+      </div>
+      <div class="apply-card">
+        <div class="ac-title"><span>🏛️</span> 복지관 연계</div>
+        <p>안산시 복지정책과 또는 지역 복지관을 통해 방문진료를 연계받으실 수도 있습니다.</p>
+        <div class="steps">
+          <span class="step-chip">복지관 문의</span><span class="arrow-chip">▸</span>
+          <span class="step-chip">연계 신청</span><span class="arrow-chip">▸</span>
+          <span class="step-chip">방문 진료</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="ruled">
+
+  <section class="story-sec reveal">
+    <div class="s-label">OUR STORY</div>
+    <h2 class="s-title">진심을 담은 1,000번의 발걸음</h2>
+
+    <div class="story-pull">
+      "단순히 진료만 하는 것이 아니라,<br>환자분의 삶 속으로 들어가 건강을 살펴왔습니다."
+    </div>
+
+    <div class="milestones">
+      <div class="milestone">
+        <div class="m-year">2020년 8월</div>
+        <span class="m-num">시작</span>
+        <div class="m-desc">안산시 복지정책과 &amp; 안산시 한의사협회 연계로 방문진료 첫 걸음</div>
+      </div>
+      <div class="milestone">
+        <div class="m-year">누적 실적</div>
+        <span class="m-num">1,000+</span>
+        <div class="m-desc">1,000건 이상의 방문진료로 수많은 환자분의 통증과 마음을 돌봄</div>
+      </div>
+      <div class="milestone">
+        <div class="m-year">공식 인정</div>
+        <span class="m-num">🏆</span>
+        <div class="m-desc">지역사회 보건 향상 기여로 안산시장 표창장 수상</div>
+      </div>
+    </div>
+
+    <div class="award-bar">
+      <div class="aw-ico">🏆</div>
+      <div>
+        <h4>안산시장 표창장 수상</h4>
+        <p>지역사회의 보건 향상에 기여한 공로를 인정받아 안산시청으로부터 표창장을 수여받았습니다. 묵묵히 걸어온 방문진료의 길을 지역이 인정해 주신 값진 상입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="ruled">
+
+  <section class="sched-sec reveal">
+    <div class="s-label">SCHEDULE</div>
+    <h2 class="s-title">방문 진료 시간 &amp; 신청 안내</h2>
+
+    <div class="sched-grid">
+      <div class="sched-card">
+        <div class="sc-head">📍 한의원 인근 지역</div>
+        <div class="sc-body">
+          <strong>평일 점심시간 및 퇴근 후</strong><br>
+          한의원 인근 지역은 평일 유연하게 방문이 가능합니다. 먼저 전화로 일정을 조율해 주세요.
+        </div>
+      </div>
+      <div class="sched-card">
+        <div class="sc-head">🗺️ 거리가 있는 지역</div>
+        <div class="sc-body">
+          <strong>매주 목요일 오후 12시부터</strong><br>
+          거리가 있는 지역은 매주 목요일 오후에 집중적으로 방문 진료를 운영하고 있습니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="hs-num">1</div>
+        <h5>전화 상담</h5>
+        <p>증상과 위치를 말씀해 주세요</p>
+      </div>
+      <div class="how-step">
+        <div class="hs-num">2</div>
+        <h5>일정 조율</h5>
+        <p>방문 날짜·시간 확정</p>
+      </div>
+      <div class="how-step">
+        <div class="hs-num">3</div>
+        <h5>한의사 방문</h5>
+        <p>침·뜸·부항 등 치료 제공</p>
+      </div>
+      <div class="how-step">
+        <div class="hs-num">4</div>
+        <h5>지속 관리</h5>
+        <p>정기 방문으로 꾸준히 관리</p>
+      </div>
+    </div>
+
+    <div class="notice-row">
+      사전에 증상과 건강 상태에 대해 충분한 상담이 필요하며, 장비나 시설이 필수적인 중증·응급 환자의 경우 방문 진료가 제한될 수 있습니다.
+    </div>
+  </section>
+
+  <hr class="ruled">
+
+  <section class="area-sec reveal">
+    <div class="s-label">SERVICE AREA</div>
+    <h2 class="s-title">안산시 방문 진료 가능 지역</h2>
+
+    <div class="area-box">
+      <div class="area-head">📍 상록구 · 단원구 주요 방문 지역</div>
+      <div class="area-tags">
+        <span class="area-tag">본오동</span>
+        <span class="area-tag">사동</span>
+        <span class="area-tag">부곡동</span>
+        <span class="area-tag">월피동</span>
+        <span class="area-tag">팔곡일동</span>
+        <span class="area-tag">팔곡이동</span>
+        <span class="area-tag">성포동</span>
+        <span class="area-tag">안산동</span>
+        <span class="area-tag">수암동</span>
+        <span class="area-tag">화정동</span>
+        <span class="area-tag">원곡동</span>
+        <span class="area-tag">초지동</span>
+        <span class="area-tag">고잔동</span>
+        <span class="area-tag">중앙동</span>
+        <span class="area-tag">와동</span>
+        <span class="area-tag">기타 안산시 전역</span>
+      </div>
+    </div>
+
+    <div class="notice-row">
+      위 지역 외에도 방문이 가능한 경우가 있으니 먼저 전화로 문의해 주세요. 거리에 따라 방문 요일과 시간이 달라질 수 있습니다.
+    </div>
+  </section>
+
+</div>
+
+<section class="cta-sec">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <h2>지금 바로<br>문의해 주세요</h2>
+      <p>
+        본인이나 가족 중 방문 진료가 필요하신 분이 있다면<br>
+        언제든 편하게 연락 주세요.<br><br>
+        안산시 본오동에서 시작된 따뜻한 인술이<br>
+        여러분의 안방까지 닿을 수 있도록<br>
+        정성을 다하겠습니다.
+      </p>
+    </div>
+    <div class="cta-right">
+      <div class="cta-info">
+        <div class="ci-ico">📞</div>
+        <div><div class="ci-l">문의 전화</div><div class="ci-v">031-408-8877</div></div>
+      </div>
+      <div class="cta-info">
+        <div class="ci-ico">📍</div>
+        <div><div class="ci-l">한의원 위치</div><div class="ci-v">안산시 상록구 샘골로 139 광림빌딩 201호</div></div>
+      </div>
+      <div class="cta-info">
+        <div class="ci-ico">🕐</div>
+        <div><div class="ci-l">방문진료 운영</div><div class="ci-v">평일 (인근) · 목요일 오후 (원거리)</div></div>
+      </div>
+      <a href="tel:031-408-8877" class="cta-btn">📞 전화 상담 바로 연결</a>
+    </div>
+  </div>
+</section>
+
+<div class="hashtags">
+  <span class="htag">#자미한의원</span>
+  <span class="htag">#방문진료</span>
+  <span class="htag">#한의사방문</span>
+  <span class="htag">#안산한의원</span>
+  <span class="htag">#재가방문진료</span>
+  <span class="htag">#장기요양</span>
+  <span class="htag">#노인의료</span>
+  <span class="htag">#안산시복지</span>
+  <span class="htag">#왕진</span>
+  <span class="htag">#찾아가는진료</span>
+  <span class="htag">#본오동한의원</span>
+  <span class="htag">#안산시장표창</span>
+  <span class="htag">#보건복지부</span>
+</div>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
